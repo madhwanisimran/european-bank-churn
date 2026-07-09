@@ -104,7 +104,7 @@ with tab1:
 
         fig.update_traces(textposition = 'outside')
         fig.update_layout(showlegend=False)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
         with col2:
             st.subheader("Key Findings")
@@ -162,7 +162,7 @@ with tab2:
                       line_color='red', annotation_text = 'Baseline 20.37%')
         fig.update_traces(textposition='outside')
         fig.update_layout(showlegend=False)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     with col2:
         gender_churn = filtered_df.groupby('Gender')['Exited'].mean().mul(100).round(2).reset_index()
@@ -182,7 +182,7 @@ with tab2:
                       line_color='red', annotation_text = 'Baseline 20.37%')
         fig.update_traces(textposition='outside')
         fig.update_layout(showlegend=False)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
         # Geography x Age heatmap
     st.subheader("Geography × Age Group Interaction")
@@ -206,7 +206,7 @@ with tab2:
        yaxis_title='Geography',
        coloraxis_colorbar=dict(title='Churn Rate (%)')
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width='stretch')
 
 #TAB3 : Segment Deep Dive
 with tab3:
@@ -257,7 +257,7 @@ with tab3:
                       line_color='red', annotation_text = 'Baseline 20.37%')
            fig.update_traces(textposition='outside')
            fig.update_layout(showlegend=False)
-           st.plotly_chart(fig, use_container_width=True)
+           st.plotly_chart(fig, width='stretch')
 
         with col2:
            product_churn = seg_df.groupby('NumOfProducts')['Exited'].mean().mul(100).round(2).reset_index()
@@ -277,7 +277,7 @@ with tab3:
                       line_color='red', annotation_text = 'Baseline 20.37%')
            fig.update_traces(textposition='outside')
            fig.update_layout(showlegend=False)
-           st.plotly_chart(fig, use_container_width=True)
+           st.plotly_chart(fig, width='stretch')
 
         col1, col2 = st.columns(2)
         with col1:
@@ -302,7 +302,7 @@ with tab3:
                           line_color='red', annotation_text = 'Baseline 20.37%')
             fig.update_traces(textposition='outside')
             fig.update_layout(showlegend=False)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
             with col2:
                 active_churn = seg_df.groupby('IsActiveMember')['Exited'].mean().mul(100).round(2).reset_index()
@@ -322,13 +322,13 @@ with tab3:
                               line_color='red', annotation_text = 'Baseline 20.37%')
                 fig.update_traces(textposition='outside')
                 fig.update_layout(showlegend=False)
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width='stretch')
 
             st.subheader("Churned vs Retained - Average Profile Comparison")
             numeric_cols = ['CreditScore', 'Age', 'Tenure', 'Balance', 'NumOfProducts', 'EstimatedSalary']
             profile = seg_df.groupby('Exited')[numeric_cols].mean().round(2)
             profile.index = ['Retained', 'Churned']
-            st.dataframe(profile, use_container_width=True)
+            st.dataframe(profile, width='stretch')
 
 #TAB4 : High Value Customers
 with tab4:
@@ -377,7 +377,7 @@ with tab4:
                       annotation_text='Baseline 20.37%')
         fig.update_traces(textposition='outside')
         fig.update_layout(showlegend=False)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
     
     with col2:
         hv_geo = hv_customers.groupby('Geography')['Exited'].mean().mul(100).round(2).reset_index()
@@ -395,7 +395,7 @@ with tab4:
                       annotation_text='Baseline 20.37%')
         fig.update_traces(textposition='outside')
         fig.update_layout(showlegend=False)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
     
     # Financial profile comparison
     st.subheader("High Value — Churned vs Retained Financial Profile")
@@ -417,7 +417,7 @@ with tab4:
         )
         fig.update_traces(texttemplate='$%{text:,.0f}', textposition='outside')
         fig.update_layout(showlegend=False)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
     
     with col2:
         fig = px.bar(
@@ -430,5 +430,5 @@ with tab4:
         )
         fig.update_traces(texttemplate='$%{text:,.0f}', textposition='outside')
         fig.update_layout(showlegend=False)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
     
