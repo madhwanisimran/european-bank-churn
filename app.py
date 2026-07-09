@@ -13,7 +13,7 @@ st.set_page_config(
 #load data
 @st.cache_data
 def load_data():
-    df = pd.read_csv(r"C:\Users\hp\Downloads\European_Bank.csv")
+    df = pd.read_csv(r"European_Bank.csv")
 
     df = df.drop(columns=['Year','Surname','CustomerId'])
 
